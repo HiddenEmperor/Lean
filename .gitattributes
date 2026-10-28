@@ -1,0 +1,5 @@
+# Keep Lean sources LF so that builds are reproducible on every platform.
+* text=auto eol=lf
+
+*.pdf binary
+*.png binary

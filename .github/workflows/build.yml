@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build MyNumbers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # lean-action 会自动检测 Mathlib 依赖并执行 `lake exe cache get`，
+      # 因此不需要手动下载缓存。
+      - name: Build project
+        uses: leanprover/lean-action@v1
+        with:
+          build-args: MyNumbers

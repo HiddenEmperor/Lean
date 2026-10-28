@@ -1,0 +1,14 @@
+# Lake build output
+/.lake
+
+# Editor / OS noise
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Lean server caches
+*.olean
+*.ilean
+*.trace

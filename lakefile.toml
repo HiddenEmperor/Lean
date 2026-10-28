@@ -1,0 +1,19 @@
+name = "mynumbers"
+defaultTargets = ["MyNumbers"]
+
+[leanOptions]
+pp.unicode.fun = true # pretty-prints `fun a ↦ b`
+
+# NOTE: `autoImplicit` is left at its default (`true`) on purpose.
+# The original development in `test.lean` was written with auto-implicit
+# arguments enabled, so turning it off would break several proofs.
+# autoImplicit = false
+# relaxedAutoImplicit = false
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "v4.20.1"
+
+[[lean_lib]]
+name = "MyNumbers"
